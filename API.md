@@ -15,6 +15,8 @@ $ curl https://api.airtable.com/v0/appjyRSLnk3amftj3/Table%201 \
 -H "Authorization: Bearer {{API-KEY}}
 ```
 
+Data gets stored in no particular order, so it needs to be sorted once the API call finishes
+
 ```json
 {
     "records": [
