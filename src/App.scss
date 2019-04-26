@@ -24,3 +24,37 @@
 img {
   width: 100%;
 }
+
+/* TODO Define as a SCSS mixin, I forget how */
+.g1 {
+  grid-row: 1;
+  grid-column: 1;
+}
+.g2 {
+  grid-row: 2;
+  grid-column: 1;
+}
+.g3 {
+  grid-row: 1;
+  grid-column: 2;
+}
+.g4 {
+  grid-row: 2;
+  grid-column: 2;
+}
+.g5 {
+  grid-row: 1;
+  grid-column: 3;
+}
+.g6 {
+  grid-row: 2;
+  grid-column: 3;
+}
+.g7 {
+  grid-row: 1;
+  grid-column: 4;
+}
+.g8 {
+  grid-row: 2;
+  grid-column: 4;
+}

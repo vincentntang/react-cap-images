@@ -11,6 +11,7 @@ Things I had to google search for in order
 - "Process env dotconfig file react"
 - "HTML image tag name"
 - "CSS grid by example"
+- "Scss mixin for defining grid classes"
 
 Time spent
 
