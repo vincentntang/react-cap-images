@@ -2,7 +2,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  background-color: #DFDFDF;
+  background-color: #dfdfdf;
 }
 
 /* Mesh Styles */
@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
 }
 
 /* Picture Styles */

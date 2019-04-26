@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Picture from "./components/Picture";
 import Mesh from "./components/Mesh";
-import "./App.css";
+import "./App.scss";
 import axios from "axios";
 require("dotenv").config();
 
