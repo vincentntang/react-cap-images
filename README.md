@@ -10,11 +10,13 @@ Things I had to google search for in order
 - "Optimal ImageMagick compression and resizing"
 - "Process env dotconfig file react"
 - "HTML image tag name"
+- "CSS grid by example"
 
 Time spent
 
 - 1 hr - Initializing React / Scaffolding. Finding transparent image online to add into Airtable
 - 1 hr - Compressing and resizing image assets using imagemagick
+- 1 hr - Writing ths first pull request #1 to connect backend to frontend, and populate images
 
 Compression methods
 

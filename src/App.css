@@ -1,0 +1,25 @@
+/* Global Styles */
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: #DFDFDF;
+}
+
+/* Mesh Styles */
+.Mesh {
+  width: 100%;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* Picture Styles */
+.Picture {
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+img {
+  width: 100%;
+}
