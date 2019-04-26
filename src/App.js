@@ -6,6 +6,10 @@ import axios from "axios";
 require("dotenv").config();
 
 class App extends Component {
+  state = {
+    images: []
+  };
+
   componentDidMount() {
     const apiKey = "Bearer " + process.env.REACT_APP_AIRTABLE_KEY;
     axios
@@ -17,18 +21,21 @@ class App extends Component {
         }
       })
       .then(res => {
-        const images = res.data;
-        console.log(images);
+        const images = res.data.records.map(item => item.fields.Attachments[0]);
+        this.setState({ images });
       })
       .catch(function(error) {
         console.log(error);
       });
   }
   render() {
+    console.log(this.state.images);
+    const topImages = this.state.images.slice(0, 9);
+    const bottomImages = this.state.images.slice(9, 18);
     return (
       <div className="App">
-        <Mesh />
-        <Picture />
+        <Mesh images={topImages} startImage={3} />
+        <Mesh images={bottomImages} startImage={7} />
       </div>
     );
   }

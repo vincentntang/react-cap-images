@@ -8,6 +8,8 @@ Things I had to google search for in order
 - "Thesaurus word for Image" - so I don't overlap namespaces with images
 - "Transparent images free"
 - "Optimal ImageMagick compression and resizing"
+- "Process env dotconfig file react"
+- "HTML image tag name"
 
 Time spent
 
