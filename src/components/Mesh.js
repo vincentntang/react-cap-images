@@ -13,11 +13,10 @@ export default class Mesh extends Component {
   // onHoverOut = e => {
   //   e.persist();
   // };
-  onClick = e=> {
+  onClick = e => {
+    // Click the class, grab it's current position
     e.persist();
-    
   }
- 
   calculateNewPosition = e => {
   }
   render() {

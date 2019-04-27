@@ -4,6 +4,7 @@ const Picture = props => {
   console.log(props.index);
   return (
     <div
+      data-src={props.gridClass}
       data-id={props.index}
       onMouseEnter={props.onHoverIn}
       onMouseLeave={props.onHoverOut}
