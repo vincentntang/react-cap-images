@@ -8,7 +8,8 @@ require("dotenv").config();
 
 class App extends Component {
   state = {
-    images: [],
+    topImages: [],
+    bottomImages: [],
     currentID: ""
   };
   onHoverIn = e => {
@@ -30,28 +31,28 @@ class App extends Component {
       })
       .then(res => {
         const images = res.data.records.map(item => item.fields.Attachments[0]);
-        this.setState({ images });
+        this.setState({
+          topImages: images.slice(0, 9),
+          bottomImages: images.slice(9, 18)
+        });
       })
       .catch(function(error) {
         console.log(error);
       });
   }
   render() {
-    console.log(this.state.images);
-    const topImages = this.state.images.slice(0, 9);
-    const bottomImages = this.state.images.slice(9, 18);
     return (
       <div className="App">
         <Mesh
           onHoverIn={this.onHoverIn}
           onHoverOut={this.onHoverOut}
-          images={topImages}
+          images={this.state.topImages}
           startImage={topGridStart}
         />
         <Mesh
           onHoverIn={this.onHoverIn}
           onHoverOut={this.onHoverOut}
-          images={bottomImages}
+          images={this.state.bottomImages}
           startImage={bottomGridStart}
         />
       </div>
