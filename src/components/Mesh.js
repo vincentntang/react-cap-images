@@ -3,7 +3,8 @@ import Picture from "./Picture";
 
 export default class Mesh extends Component {
   state = {
-    positions: this.props.startPositions
+    positions: this.props.startPositions,
+    largeImagePosition: this.props.largeImagePosition
   };
 
   onHoverIn = e => {
