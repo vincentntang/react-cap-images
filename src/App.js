@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Picture from "./components/Picture";
 import Mesh from "./components/Mesh";
-import "./App.css";
+import "./App.scss";
 import axios from "axios";
+import { topGridStart, bottomGridStart } from "./constants/startingPositions";
 require("dotenv").config();
 
 class App extends Component {
@@ -34,8 +35,8 @@ class App extends Component {
     const bottomImages = this.state.images.slice(9, 18);
     return (
       <div className="App">
-        <Mesh images={topImages} startImage={3} />
-        <Mesh images={bottomImages} startImage={7} />
+        <Mesh images={topImages} startImage={topGridStart} />
+        <Mesh images={bottomImages} startImage={bottomGridStart} />
       </div>
     );
   }
