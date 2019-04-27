@@ -4,6 +4,9 @@
   flex-direction: column;
   background-color: #dfdfdf;
 }
+* {
+  box-sizing: border-box;
+}
 
 /* Mesh Styles */
 .Mesh {

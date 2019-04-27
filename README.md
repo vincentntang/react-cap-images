@@ -15,6 +15,9 @@ Things I had to google search for in order
 - "React onhover event" https://stackoverflow.com/questions/32125708/how-can-i-access-a-hover-state-in-reactjs
 - "react-js-onclick-event-returning-all-null-values" - use persist() https://stackoverflow.com/questions/26317985/react-js-onclick-event-returning-all-null-values
 - React-JS get key index of clicked item - "https://stackoverflow.com/questions/40044861/get-key-index-on-click-es6-react"  - use `data-*`
+- "Transparent Z-Index" - image `data-id` would not work
+- "React Add inline styles" - to modify CSS-background instead of having an image, or CSS-grid properties
+- "Setting Background Image URL in React" - https://stackoverflow.com/questions/39195687/setting-a-backgroundimage-with-react-inline-styles
 
 Time spent
 

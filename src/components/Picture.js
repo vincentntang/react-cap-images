@@ -8,6 +8,10 @@ const Picture = props => {
       onMouseEnter={props.onHoverIn}
       onMouseLeave={props.onHoverOut}
       className={`Picture ${props.gridClass}`}
+      style={{ padding: "10%" }}
+      // style={{
+      //   backgroundImage: `url(${props.url})`
+      // }}
     >
       <img src={props.url} />
     </div>

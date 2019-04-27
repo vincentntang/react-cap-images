@@ -8,11 +8,11 @@ export default class Mesh extends Component {
   };
   onHoverIn = e => {
     e.persist();
-    console.log(e);
+    console.log(e.target.dataset.id);
   };
   onHoverOut(e) {
     e.persist();
-    console.log(e, "Mouse Out");
+    // console.log(e, "Mouse Out");
   }
   render() {
     return (
