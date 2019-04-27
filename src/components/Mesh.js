@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Picture from "./Picture";
+import { gridPositions } from "../constants/gridPositions";
 
 export default class Mesh extends Component {
   state = {
@@ -16,20 +17,23 @@ export default class Mesh extends Component {
   onClick = e => {
     // Click the class, grab it's current position
     e.persist();
-  }
-  calculateNewPosition = e => {
-  }
+  };
+  calculateNewPosition = e => {};
   render() {
     return (
       <div className="Mesh">
         {this.props.images.map((picture, index) => {
-          let gridClass = this.state.positions[index];
+          let gridID = this.state.positions[index];
+          let gridRow = gridPositions[gridID][0];
+          let gridColumn = gridPositions[gridID][1];
           return (
             <Picture
               onClick={this.onClick}
               onHoverIn={this.onHoverIn}
               onHoverOut={this.onHoverOut}
-              gridClass={gridClass}
+              gridID={gridID}
+              gridRow={gridRow}
+              gridColumn={gridColumn}
               url={picture.url}
               key={picture.id}
               index={picture.id}

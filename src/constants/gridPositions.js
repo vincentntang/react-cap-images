@@ -1,4 +1,4 @@
-export const gridDefinitions = {
+export const gridPositions = {
   g1: ["1", "1"],
   g2: ["2", "1"],
   g3: ["2", "1"],
