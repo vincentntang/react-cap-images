@@ -38,12 +38,12 @@ class App extends Component {
         <Mesh
           images={topImages}
           startPositions={topGridStart}
-          largeImagePosition={3}
+          largeImagePosition={2}
         />
         <Mesh
           images={bottomImages}
           startPositions={bottomGridStart}
-          largeImagePosition={7}
+          largeImagePosition={6}
         />
       </div>
     );

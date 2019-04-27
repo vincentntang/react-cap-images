@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Picture from "./Picture";
 import { gridPositions } from "../constants/gridPositions";
+import _ from "lodash";
 
 export default class Mesh extends Component {
   state = {
@@ -18,6 +19,11 @@ export default class Mesh extends Component {
     // Click the class, grab it's current position
     e.persist();
     const currentID = e.target.dataset.location;
+
+    // Check if anything should happen, if the distance between large image
+    // is 2 spaces or less
+    if (currentID.charAt(0) == "g") {
+    }
   };
   calculateNewPosition = e => {};
   render() {
