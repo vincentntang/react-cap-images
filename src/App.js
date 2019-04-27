@@ -8,7 +8,14 @@ require("dotenv").config();
 
 class App extends Component {
   state = {
-    images: []
+    images: [],
+    currentID: ""
+  };
+  onHoverIn = e => {
+    console.log(e, "Mouse In");
+  };
+  onHoverOut = e => {
+    console.log(e, "Mouse Out");
   };
 
   componentDidMount() {
@@ -35,8 +42,18 @@ class App extends Component {
     const bottomImages = this.state.images.slice(9, 18);
     return (
       <div className="App">
-        <Mesh images={topImages} startImage={topGridStart} />
-        <Mesh images={bottomImages} startImage={bottomGridStart} />
+        <Mesh
+          onHoverIn={this.onHoverIn}
+          onHoverOut={this.onHoverOut}
+          images={topImages}
+          startImage={topGridStart}
+        />
+        <Mesh
+          onHoverIn={this.onHoverIn}
+          onHoverOut={this.onHoverOut}
+          images={bottomImages}
+          startImage={bottomGridStart}
+        />
       </div>
     );
   }
