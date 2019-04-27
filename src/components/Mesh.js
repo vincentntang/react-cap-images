@@ -17,7 +17,7 @@ export default class Mesh extends Component {
   onClick = e => {
     // Click the class, grab it's current position
     e.persist();
-    const currentID = e.target.dataset.src;
+    const currentID = e.target.dataset.location;
     console.log(currentID);
   };
   calculateNewPosition = e => {};
