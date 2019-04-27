@@ -2,7 +2,11 @@ import React from "react";
 
 const Picture = props => {
   return (
-    <div className={`Picture ${props.gridClass}`}>
+    <div
+      onMouseEnter={props.onHoverIn}
+      onMouseLeave={props.onHoverOut}
+      className={`Picture ${props.gridClass}`}
+    >
       <img src={props.url} className />
     </div>
   );
