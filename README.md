@@ -20,6 +20,7 @@ Time spent
 - 1 hr - Compressing and resizing image assets using imagemagick
 - 1 hr - Writing ths first pull request #1 to connect backend to frontend, and populate images
 - 1 hr - Replicating starting css grid system
+- 1 hr - css grid
 
 Compression methods
 
