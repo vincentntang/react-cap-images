@@ -38,7 +38,7 @@ export default class Mesh extends Component {
               gridColumn={gridColumn}
               url={picture.url}
               key={picture.id}
-              index={picture.id}
+              index={index}
             />
           );
         })}
