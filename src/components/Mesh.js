@@ -6,14 +6,20 @@ export default class Mesh extends Component {
     positions: this.props.startPositions,
     largeImagePosition: this.props.largeImagePosition
   };
-  onHoverIn = e => {
+  // onHoverIn = e => {
+  //   e.persist();
+  //   // console.log(e.target.dataset.id);
+  // };
+  // onHoverOut = e => {
+  //   e.persist();
+  // };
+  onClick = e=> {
     e.persist();
-    console.log(e.target.dataset.id);
-  };
-  onHoverOut = e => {
-    e.persist();
-    // console.log(e, "Mouse Out");
-  };
+    
+  }
+ 
+  calculateNewPosition = e => {
+  }
   render() {
     return (
       <div className="Mesh">
@@ -21,6 +27,7 @@ export default class Mesh extends Component {
           let gridClass = this.state.positions[index];
           return (
             <Picture
+              onClick={this.onClick}
               onHoverIn={this.onHoverIn}
               onHoverOut={this.onHoverOut}
               gridClass={gridClass}
