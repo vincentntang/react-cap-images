@@ -13,6 +13,8 @@ Things I had to google search for in order
 - "CSS grid by example"
 - "Scss mixin for defining grid classes"
 - "React onhover event" https://stackoverflow.com/questions/32125708/how-can-i-access-a-hover-state-in-reactjs
+- "react-js-onclick-event-returning-all-null-values" - use persist() https://stackoverflow.com/questions/26317985/react-js-onclick-event-returning-all-null-values
+- React-JS get key index of clicked item - "https://stackoverflow.com/questions/40044861/get-key-index-on-click-es6-react"  - use `data-*`
 
 Time spent
 
