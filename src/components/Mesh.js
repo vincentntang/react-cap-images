@@ -10,10 +10,10 @@ export default class Mesh extends Component {
     e.persist();
     console.log(e.target.dataset.id);
   };
-  onHoverOut(e) {
+  onHoverOut = e => {
     e.persist();
     // console.log(e, "Mouse Out");
-  }
+  };
   render() {
     return (
       <div className="Mesh">
