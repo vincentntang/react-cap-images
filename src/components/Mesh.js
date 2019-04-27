@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Picture from "./Picture";
 
 export default class Mesh extends Component {
-  state = {};
+  state = {
+    positions: this.props.startPositions
+  };
 
   onHoverIn = e => {
     console.log(e, "Mouse In");
@@ -14,7 +16,7 @@ export default class Mesh extends Component {
     return (
       <div className="Mesh">
         {this.props.images.map((picture, index) => {
-          const gridClass = this.props.startImage[index];
+          const gridClass = this.state.positions[index];
           return (
             <Picture
               onHoverIn={this.onHoverIn}
