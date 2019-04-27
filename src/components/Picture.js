@@ -9,9 +9,10 @@ const Picture = props => {
       onMouseEnter={props.onHoverIn}
       onMouseLeave={props.onHoverOut}
       onClick={props.onClick}
-      className={`Picture ${props.gridClass}`}
       style={{ padding: "10%" }}
       style={{ gridRow: props.gridRow, gridColumn: props.gridColumn }}
+      className="Picture"
+      // className={`Picture ${props.gridClass}`}
       // style={{
       //   backgroundImage: `url(${props.url})`
       // }}
