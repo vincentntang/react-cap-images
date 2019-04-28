@@ -57,18 +57,22 @@ export default class Mesh extends Component {
         }
         // X = 1, C hovered
         if (largePos - currentID == 1) {
-          let newPositions = this.state.positions;
-          newPositions[largePos] = "g" + (largePos + 3); // A > C
-          newPositions[largePos - 2] = "g" + (largePos + 2); // B > B
-          newPositions[largePos - 1] = "b" + (largePos - 2); // C > A
+          let newImages = this.state.images;
+          newImages[largePos].position = "g" + (largePos + 3); // A > C
+          newImages[largePos - 2].position = "g" + (largePos + 2); // B > B
+          newImages[largePos - 1].position = "b" + (largePos - 2); // C > A
           // Swap index positions of new B and new A,
           // because B was left of A now it's on right of A
-          let newimages = this.props.images;
+          // let newimages = this.props.images;
+          // this.setState({
+          //   positions: newPositions,
+          //   largePos: largePos - 2
+          // });
+          // this.props.swapImageOrder(largePos - 2, largePos - 1);
           this.setState({
-            positions: newPositions,
+            images: newImages,
             largePos: largePos - 2
           });
-          // this.props.swapImageOrder(largePos - 2, largePos - 1);
         }
         // X = 2, D hovered
         if (largePos - currentID == 4) {
