@@ -87,6 +87,7 @@ export default class Mesh extends Component {
       <div className="Mesh">
         {this.props.images.map((picture, index) => {
           let gridID = this.state.positions[index];
+          console.log(gridID);
           let gridRow = gridPositions[gridID][0];
           let gridColumn = gridPositions[gridID][1];
           return (
