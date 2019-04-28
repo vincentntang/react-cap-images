@@ -32,8 +32,8 @@ export default class Mesh extends Component {
     e.persist();
     const currentID = e.target.dataset.location.substring(1);
     let { largePos } = this.state;
-    console.log(currentID);
-    console.log(largePos);
+    console.log(currentID, "currentID");
+    console.log(largePos, "largePos");
 
     /**
      * The following below is where core logic of app sits
@@ -51,12 +51,12 @@ export default class Mesh extends Component {
       if (currentID < largePos) {
         // X = 1, B hovered left
         if (largePos - currentID == 2) {
-          let newImages = this.state.images;
-          newImages[largePos].position = "g" + (largePos + 2);
-          newImages[largePos - 2].position = "b" + (largePos - 2);
-          newImages[largePos - 1].position = "g" + (largePos + 3);
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 2);
+          newImg[largePos - 2].position = "b" + (largePos - 2);
+          newImg[largePos - 1].position = "g" + (largePos + 3);
           this.setState({
-            images: newImages,
+            images: newImg,
             largePos: largePos - 2
           });
         }
@@ -111,8 +111,10 @@ export default class Mesh extends Component {
           // Chop a piece of paper up
           // Label each transition out, and animate by hand
           // If the 4th item in array was largePos
-          // The order 0 item swapped with 1st
-          // The order 2nd item swapped with 3rd
+          // swap 0 and 1
+          //     -4    -3
+          // swap 2 and 3
+          //     -2    -1
           swap(newImg, largePos - 4, largePos - 3);
           swap(newImg, largePos - 2, largePos - 1);
 
@@ -125,11 +127,22 @@ export default class Mesh extends Component {
       } else if (currentID > largePos) {
         // X = 1, B hovered right
         if (currentID - largePos == 4) {
-          console.log("X1B");
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 0);
+          newImg[largePos + 1].position = "b" + (largePos + 2);
+          newImg[largePos + 2].position = "g" + (largePos + 1);
+
+          // If 4th item, largePos = 2
+          // swap 3rd and 4th item
+          // or   +1   and +2 from largePos
+          swap(newImg, largePos + 1, largePos + 2);
+          this.setState({
+            images: newImg,
+            largePos: largePos + 2
+          });
         }
         // X = 1, C hovered right
         if (currentID - largePos == 5) {
-          console.log("X1C");
         }
         // X = 2, D hovered right
         if (currentID - largePos == 6) {
