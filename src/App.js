@@ -58,12 +58,12 @@ class App extends Component {
       <div className="App">
         <Mesh
           swapImageOrder={this.swapImageOrder}
-          images={topImages}
+          meshImages={topImages}
           largePos={2}
         />
         <Mesh
           swapImageOrder={this.swapImageOrder}
-          images={bottomImages}
+          meshImages={bottomImages}
           largePos={6}
         />
       </div>

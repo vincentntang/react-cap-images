@@ -7,9 +7,23 @@ export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
     // positions: this.props.startPositions,
+    images2:[],
     largePos: this.props.largePos
   };
-
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({
+        images2: this.props.meshImages
+      })
+    },500)
+  }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.images2 !== nextProps.meshImages) {
+      return {
+        images2: nextProps.meshImages
+      };
+    }
+  };
   // onHoverIn = e => {};
   // onHoverOut = e => {};
   onClick = e => {
@@ -44,7 +58,7 @@ export default class Mesh extends Component {
           newPositions[largePos - 1] = "b" + (largePos - 2); // C > A
           // Swap index positions of new B and new A,
           // because B was left of A now it's on right of A
-          let newImages = this.props.images;
+          let newimages = this.props.images;
           this.setState({
             positions: newPositions,
             largePos: largePos - 2
@@ -80,29 +94,39 @@ export default class Mesh extends Component {
       }
     }
   };
-  calculateNewPosition = e => {};
   render() {
+    let pictureItems = "";
+    if (this.state.images2.length > 0) {
+      pictureItems = (
+        <>
+          {this.state.images2.map(picture => {
+            let gridID = picture.position;
+            console.log(gridID, "gridID");
+            let gridRow = gridPositions[gridID][0];
+            let gridColumn = gridPositions[gridID][1];
+            return (
+              <Picture
+                onClick={this.onClick}
+                // onHoverIn={this.onHoverIn}
+                // onHoverOut={this.onHoverOut}
+                gridID={picture.position}
+                gridRow={gridRow}
+                gridColumn={gridColumn}
+                url={picture.url}
+                key={picture.id}
+                // index={index}
+              />
+            );
+          })}
+        </>
+      );
+    } else {
+      pictureItems =<div>Loading ...</div>;
+    }
     return (
       <div className="Mesh">
-        {this.props.images.map(picture => {
-          let gridID = picture.position;
-          console.log(gridID, "gridID");
-          let gridRow = gridPositions[gridID][0];
-          let gridColumn = gridPositions[gridID][1];
-          return (
-            <Picture
-              onClick={this.onClick}
-              // onHoverIn={this.onHoverIn}
-              // onHoverOut={this.onHoverOut}
-              gridID={picture.position}
-              gridRow={gridRow}
-              gridColumn={gridColumn}
-              url={picture.url}
-              key={picture.id}
-              // index={index}
-            />
-          );
-        })}
+        {pictureItems}
+  
       </div>
     );
   }
