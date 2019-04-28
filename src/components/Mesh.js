@@ -52,18 +52,19 @@ export default class Mesh extends Component {
         }
         // X = 1, C hovered
         if (largePos - currentID == 1) {
+          // Calculate new grid positions
           let newImages = this.state.images;
           newImages[largePos].position = "g" + (largePos + 3); // A > C
           newImages[largePos - 2].position = "g" + (largePos + 2); // B > B
           newImages[largePos - 1].position = "b" + (largePos - 2); // C > A
+          // Because B moves from left to right of A
           // Swap index positions of new B and new A,
-          // because B was left of A now it's on right of A
-          // let newimages = this.props.images;
-          // this.setState({
-          //   positions: newPositions,
-          //   largePos: largePos - 2
-          // });
-          // this.props.swapImageOrder(largePos - 2, largePos - 1);
+          // [arr[0], arr[1]] = [arr[1], arr[0]];
+          [newImages[largePos - 2], newImages[largePos - 1]] = [
+            newImages[largePos - 1],
+            newImages[largePos - 2]
+          ];
+          // Push changes
           this.setState({
             images: newImages,
             largePos: largePos - 2
