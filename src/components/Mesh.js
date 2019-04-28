@@ -63,26 +63,50 @@ export default class Mesh extends Component {
         // X = 1, C hovered left
         if (largePos - currentID == 1) {
           // Calculate new grid positions
-          let newImages = this.state.images;
-          newImages[largePos].position = "g" + (largePos + 3); // A > C
-          newImages[largePos - 2].position = "g" + (largePos + 2); // B > B
-          newImages[largePos - 1].position = "b" + (largePos - 2); // C > A
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 3); // A > C
+          newImg[largePos - 2].position = "g" + (largePos + 2); // B > B
+          newImg[largePos - 1].position = "b" + (largePos - 2); // C > A
           // Because B moves from left to right of A
           // Swap index positions of new B and new A,
           // [arr[0], arr[1]] = [arr[1], arr[0]];
-          [newImages[largePos - 2], newImages[largePos - 1]] = [
-            newImages[largePos - 1],
-            newImages[largePos - 2]
+          [newImg[largePos - 2], newImg[largePos - 1]] = [
+            newImg[largePos - 1],
+            newImg[largePos - 2]
           ];
           // Push changes
           this.setState({
-            images: newImages,
+            images: newImg,
             largePos: largePos - 2
           });
         }
         // X = 2, D hovered left
         if (largePos - currentID == 4) {
-          console.log("X1D");
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 2);
+          newImg[largePos - 2].position = "g" + (largePos + 0);
+          newImg[largePos - 1].position = "g" + (largePos + 3);
+          newImg[largePos - 4].position = "b" + (largePos - 4);
+          newImg[largePos - 3].position = "g" + (largePos + 1);
+
+          // Chop a piece of paper up
+          // Label each transition out, and animate by hand
+          // If the 4th item in array was largePos
+          // The order 1st item swapped with 2nd
+          // The order 3rd item swapped with 4th
+          [newImg[largePos - 2], newImg[largePos - 3]] = [
+            newImg[largePos - 3],
+            newImg[largePos - 2]
+          ];
+          [newImg[largePos - 0], newImg[largePos - 1]] = [
+            newImg[largePos - 1],
+            newImg[largePos - 0]
+          ];
+
+          this.setState({
+            images: newImg,
+            largePos: largePos - 4
+          });
         }
         // X = 2, E hovered left
         if (largePos - currentID == 3) {
