@@ -14,28 +14,49 @@ export default class Mesh extends Component {
   onClick = e => {
     // Click the class, grab it's current position
     e.persist();
-    const currentID = e.target.dataset.location;
+    const currentID = e.target.dataset.location.substring(1);
     let { largePos } = this.state;
     console.log(currentID);
     console.log(largePos);
 
-    // Check if anything should happen, if the distance between large image
-    if (currentID.charAt(0) == "g") {
+    // Only do things if not large image clicked
+    if (currentID !== largePos) {
       // Hover Left - Scenario 1,2,3,4, X positive
       if (currentID < largePos) {
         // X = 1, B hovered
         if (largePos - currentID == 2) {
-          console.log("hey");
+          console.log("X1B");
         }
         // X = 1, C hovered
+        if (largePos - currentID == 1) {
+          console.log("X1C");
+        }
         // X = 2, D hovered
+        if (largePos - currentID == 4) {
+          console.log("X1D");
+        }
         // X = 2, E hovered
+        if (largePos - currentID == 3) {
+          console.log("X1E");
+        }
         // Hover Right - Scenario 1,2,3,4, X negative
       } else if (currentID > largePos) {
         // X = 1, B hovered
+        if (currentID - largePos == 4) {
+          console.log("X1B");
+        }
         // X = 1, C hovered
+        if (currentID - largePos == 5) {
+          console.log("X1C");
+        }
         // X = 2, D hovered
+        if (currentID - largePos == 6) {
+          console.log("X1D");
+        }
         // X = 2, E hovered
+        if (currentID - largePos == 7) {
+          console.log("X1E");
+        }
       }
     }
   };
