@@ -35,6 +35,16 @@ export default class Mesh extends Component {
     console.log(currentID);
     console.log(largePos);
 
+    /**
+     * The following below is where core logic of app sits
+     * It calculates how states move from one to another
+     * A variable X is described in comments but never defined
+     * This defines the distance, between a large image and the distance
+     * of the element clicked
+     *
+     * There are 8 unique state transitions, each commented out
+     * Please see the README doc for more information on how it works
+     */
     // Only do things if not large image clicked
     if (currentID !== largePos) {
       // Hover Left - Scenario 1,2,3,4, X positive
