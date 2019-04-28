@@ -3,7 +3,7 @@ import Picture from "./components/Picture";
 import Mesh from "./components/Mesh";
 import "./App.scss";
 import axios from "axios";
-import { topGridStart, bottomGridStart } from "./constants/startingPositions";
+import { startingPositions } from "./constants/startingPositions";
 require("dotenv").config();
 
 class App extends Component {
@@ -22,7 +22,13 @@ class App extends Component {
         }
       })
       .then(res => {
-        const images = res.data.records.map(item => item.fields.Attachments[0]);
+        // Extract relevant data from Airtable API, and append each picture's grid position
+        const images = res.data.records
+          .map(item => item.fields.Attachments[0])
+          .map((item, index) => {
+            item.position = startingPositions[index];
+            return item;
+          });
         this.setState({ images });
       })
       .catch(function(error) {
@@ -53,13 +59,11 @@ class App extends Component {
         <Mesh
           swapImageOrder={this.swapImageOrder}
           images={topImages}
-          startPositions={topGridStart}
           largePos={2}
         />
         <Mesh
           swapImageOrder={this.swapImageOrder}
           images={bottomImages}
-          startPositions={bottomGridStart}
           largePos={6}
         />
       </div>

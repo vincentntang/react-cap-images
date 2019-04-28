@@ -49,7 +49,7 @@ export default class Mesh extends Component {
             positions: newPositions,
             largePos: largePos - 2
           });
-          this.props.swapImageOrder(largePos - 2, largePos - 1);
+          // this.props.swapImageOrder(largePos - 2, largePos - 1);
         }
         // X = 2, D hovered
         if (largePos - currentID == 4) {
@@ -84,9 +84,9 @@ export default class Mesh extends Component {
   render() {
     return (
       <div className="Mesh">
-        {this.props.images.map((picture, index) => {
-          let gridID = this.state.positions[index];
-          console.log(gridID);
+        {this.props.images.map(picture => {
+          let gridID = picture.position;
+          console.log(gridID, "gridID");
           let gridRow = gridPositions[gridID][0];
           let gridColumn = gridPositions[gridID][1];
           return (
@@ -99,7 +99,7 @@ export default class Mesh extends Component {
               gridColumn={gridColumn}
               url={picture.url}
               key={picture.id}
-              index={index}
+              // index={index}
             />
           );
         })}
