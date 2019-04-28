@@ -5,6 +5,7 @@ const Picture = props => {
     <div
       data-location={props.gridID}
       data-id={props.index}
+      data-order={props.order}
       onClick={props.onClick}
       style={{ padding: "10%" }}
       style={{ gridRow: props.gridRow, gridColumn: props.gridColumn }}
