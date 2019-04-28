@@ -27,6 +27,7 @@ class App extends Component {
           .map(item => item.fields.Attachments[0])
           .map((item, index) => {
             item.position = startingPositions[index];
+            item.order = index % 9; // Defines the image order for both meshes, 0 to 9
             return item;
           });
         this.setState({ images });
