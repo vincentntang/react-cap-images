@@ -6,6 +6,7 @@ import _ from "lodash";
 export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
+    images: this.props.images,
     positions: this.props.startPositions,
     largePos: this.props.largePos
   };
@@ -25,30 +26,31 @@ export default class Mesh extends Component {
       if (currentID < largePos) {
         // X = 1, B hovered
         if (largePos - currentID == 2) {
-          let newState = this.state.positions;
+          let newPositions = this.state.positions;
           // 2,0,1
-          newState[largePos] = "g" + (largePos + 2);
-          newState[largePos - 2] = "b" + (largePos - 2);
-          newState[largePos - 1] = "g" + (largePos + 3);
+          newPositions[largePos] = "g" + (largePos + 2);
+          newPositions[largePos - 2] = "b" + (largePos - 2);
+          newPositions[largePos - 1] = "g" + (largePos + 3);
           this.setState({
-            state: newState,
+            positions: newPositions,
             largePos: largePos - 2
           });
         }
         // X = 1, C hovered
         if (largePos - currentID == 1) {
-          let newState = this.state.positions;
-          newState[largePos] = "g" + (largePos + 3); // A > C
-          newState[largePos - 2] = "g" + (largePos + 2); // B > B
-          newState[largePos - 1] = "b" + (largePos - 2); // C > A
+          let newPositions = this.state.positions;
+          newPositions[largePos] = "g" + (largePos + 3); // A > C
+          newPositions[largePos - 2] = "g" + (largePos + 2); // B > B
+          newPositions[largePos - 1] = "b" + (largePos - 2); // C > A
           // Swap index positions of new B and new A,
           // because B was left of A now it's on right of A
-          let temp = newState[largePos - 2]; // B
-          newState[largePos - 2] = newState[largePos - 1];
-          newState[largePos - 1] = temp;
+          // let newImages = this.state.images;
+          // let temp = newImages[largePos - 2]; // B
+          // newImages[largePos - 2] = newImages[largePos - 1];
+          // newImages[largePos - 1] = temp;
 
           this.setState({
-            state: newState,
+            positions: newPositions,
             largePos: largePos - 2
           });
         }
