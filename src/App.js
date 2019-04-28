@@ -29,14 +29,35 @@ class App extends Component {
         console.log(error);
       });
   }
+
+  // swapImageOrder = (a, b) => {
+  //   console.log(a, "a");
+  //   console.log(b, "b");
+  //   let indexImageA = parseInt(a) - 9;
+  //   let indexImageB = parseInt(b) - 9;
+  //   let newImages = this.state.images;
+  //   let temp = newImages[indexImageA];
+  //   newImages[indexImageA] = newImages[indexImageB];
+  //   newImages[indexImageB] = newImages[indexImageA];
+  //   this.setState({
+  //     images: newImages
+  //   });
+  // };
+
   render() {
     console.log(this.state.images);
     const topImages = this.state.images.slice(0, 9);
     const bottomImages = this.state.images.slice(9, 18);
     return (
       <div className="App">
-        <Mesh images={topImages} startPositions={topGridStart} largePos={2} />
         <Mesh
+          swapImageOrder={this.swapImageOrder}
+          images={topImages}
+          startPositions={topGridStart}
+          largePos={2}
+        />
+        <Mesh
+          swapImageOrder={this.swapImageOrder}
           images={bottomImages}
           startPositions={bottomGridStart}
           largePos={6}

@@ -6,10 +6,10 @@ import _ from "lodash";
 export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
-    images: this.props.images,
     positions: this.props.startPositions,
     largePos: this.props.largePos
   };
+
   // onHoverIn = e => {};
   // onHoverOut = e => {};
   onClick = e => {
@@ -44,15 +44,12 @@ export default class Mesh extends Component {
           newPositions[largePos - 1] = "b" + (largePos - 2); // C > A
           // Swap index positions of new B and new A,
           // because B was left of A now it's on right of A
-          // let newImages = this.state.images;
-          // let temp = newImages[largePos - 2]; // B
-          // newImages[largePos - 2] = newImages[largePos - 1];
-          // newImages[largePos - 1] = temp;
-
+          let newImages = this.props.images;
           this.setState({
             positions: newPositions,
             largePos: largePos - 2
           });
+          this.props.swapImageOrder(largePos - 2, largePos - 1);
         }
         // X = 2, D hovered
         if (largePos - currentID == 4) {
