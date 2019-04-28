@@ -37,7 +37,20 @@ export default class Mesh extends Component {
         }
         // X = 1, C hovered
         if (largePos - currentID == 1) {
-          console.log("X1C");
+          let newState = this.state.positions;
+          newState[largePos] = "g" + (largePos + 3); // A > C
+          newState[largePos - 2] = "g" + (largePos + 2); // B > B
+          newState[largePos - 1] = "b" + (largePos - 2); // C > A
+          // Swap index positions of new B and new A,
+          // because B was left of A now it's on right of A
+          let temp = newState[largePos - 2]; // B
+          newState[largePos - 2] = newState[largePos - 1];
+          newState[largePos - 1] = temp;
+
+          this.setState({
+            state: newState,
+            largePos: largePos - 2
+          });
         }
         // X = 2, D hovered
         if (largePos - currentID == 4) {
