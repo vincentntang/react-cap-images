@@ -159,7 +159,27 @@ export default class Mesh extends Component {
         }
         // X = 2, D hovered right
         if (currentID - largePos == 6) {
-          console.log("X1D");
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 0);
+          newImg[largePos + 1].position = "g" + (largePos + 2);
+          newImg[largePos + 2].position = "g" + (largePos + 1);
+          newImg[largePos + 3].position = "b" + (largePos + 4);
+          newImg[largePos + 4].position = "g" + (largePos + 3);
+
+          // Chop a piece of paper up
+          // Label each transition out, and animate by hand
+          // If the 2nd item, largePos = 2
+          // the 3rd and 4th item swapped
+          //     +1      +2
+          // the 5th and 6th item swapped
+          //     +3      +4
+          swap(newImg, largePos + 1, largePos + 2);
+          swap(newImg, largePos + 3, largePos + 4);
+
+          this.setState({
+            images: newImg,
+            largePos: largePos + 4
+          });
         }
         // X = 2, E hovered right
         if (currentID - largePos == 7) {
