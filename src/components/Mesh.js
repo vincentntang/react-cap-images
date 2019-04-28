@@ -6,9 +6,25 @@ import _ from "lodash";
 export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
-    positions: this.props.startPositions,
+    images: [],
     largePos: this.props.largePos
   };
+
+  /**
+   * This waits for parent App component to resolve Axios API call to image store
+   * So it can pass the full props data
+   * to this component
+   * which can then seed this component's local state
+   * Why this is necessary is because `Mesh` handles the core logic of the app
+   * `App` only handles seeding of data
+   */
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.images !== nextProps.meshImages) {
+      return {
+        images: nextProps.meshImages
+      };
+    }
+  }
   // onHoverIn = e => {};
   // onHoverOut = e => {};
   onClick = e => {
@@ -25,18 +41,34 @@ export default class Mesh extends Component {
       if (currentID < largePos) {
         // X = 1, B hovered
         if (largePos - currentID == 2) {
-          let newState = this.state.positions;
-          // 2,0,1
-          newState[largePos] = "g" + (largePos + 2);
-          newState[largePos - 2] = "b" + (largePos - 2);
-          newState[largePos - 1] = "g" + (largePos + 3);
+          let newImages = this.state.images;
+          newImages[largePos].position = "g" + (largePos + 2);
+          newImages[largePos - 2].position = "b" + (largePos - 2);
+          newImages[largePos - 1].position = "g" + (largePos + 3);
           this.setState({
-            state: newState
+            images: newImages,
+            largePos: largePos - 2
           });
         }
         // X = 1, C hovered
         if (largePos - currentID == 1) {
-          console.log("X1C");
+          // Calculate new grid positions
+          let newImages = this.state.images;
+          newImages[largePos].position = "g" + (largePos + 3); // A > C
+          newImages[largePos - 2].position = "g" + (largePos + 2); // B > B
+          newImages[largePos - 1].position = "b" + (largePos - 2); // C > A
+          // Because B moves from left to right of A
+          // Swap index positions of new B and new A,
+          // [arr[0], arr[1]] = [arr[1], arr[0]];
+          [newImages[largePos - 2], newImages[largePos - 1]] = [
+            newImages[largePos - 1],
+            newImages[largePos - 2]
+          ];
+          // Push changes
+          this.setState({
+            images: newImages,
+            largePos: largePos - 2
+          });
         }
         // X = 2, D hovered
         if (largePos - currentID == 4) {
@@ -67,29 +99,34 @@ export default class Mesh extends Component {
       }
     }
   };
-  calculateNewPosition = e => {};
   render() {
-    return (
-      <div className="Mesh">
-        {this.props.images.map((picture, index) => {
-          let gridID = this.state.positions[index];
-          let gridRow = gridPositions[gridID][0];
-          let gridColumn = gridPositions[gridID][1];
-          return (
-            <Picture
-              onClick={this.onClick}
-              // onHoverIn={this.onHoverIn}
-              // onHoverOut={this.onHoverOut}
-              gridID={gridID}
-              gridRow={gridRow}
-              gridColumn={gridColumn}
-              url={picture.url}
-              key={picture.id}
-              index={index}
-            />
-          );
-        })}
-      </div>
-    );
+    let pictureItems = "";
+    if (this.state.images.length > 0) {
+      pictureItems = (
+        <>
+          {this.state.images.map(picture => {
+            let gridID = picture.position;
+            console.log(gridID, "gridID");
+            let gridRow = gridPositions[gridID][0];
+            let gridColumn = gridPositions[gridID][1];
+            return (
+              <Picture
+                onClick={this.onClick}
+                gridID={picture.position}
+                gridRow={gridRow}
+                gridColumn={gridColumn}
+                url={picture.url}
+                key={picture.id}
+                order={picture.order}
+                // index={index}
+              />
+            );
+          })}
+        </>
+      );
+    } else {
+      pictureItems = <div>Loading ...</div>;
+    }
+    return <div className="Mesh">{pictureItems}</div>;
   }
 }

@@ -17,23 +17,3 @@ export const gridPositions = {
   b6: ["1/3", "4/6"],
   b8: ["1/3", "5/7"]
 };
-// .b1 {
-//   grid-row: 1/3;
-//   grid-column: 1/3;
-// }
-// .b2 {
-//   grid-row: 1/3;
-//   grid-column: 2/4;
-// }
-// .b3 {
-//   grid-row: 1/3;
-//   grid-column: 3/5;
-// }
-// .b4 {
-//   grid-row: 1/3;
-//   grid-column: 4/6;
-// }
-// .b5 {
-//   grid-row: 1/3;
-//   grid-column: 5/7;
-// }

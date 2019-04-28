@@ -18,6 +18,7 @@ Things I had to google search for in order
 - "Transparent Z-Index" - image `data-id` would not work
 - "React Add inline styles" - to modify CSS-background instead of having an image, or CSS-grid properties
 - "Setting Background Image URL in React" - https://stackoverflow.com/questions/39195687/setting-a-backgroundimage-with-react-inline-styles
+- "React initialize changing parent props to child state" -> https://stackoverflow.com/questions/49617486/how-to-use-lifecycle-method-getderivedstatefromprops-as-opposed-to-componentwill  - This took a few hours to get this bug work out due to child state being initialized before axios call on parent setState promise resolved, used `setTimeOut` and console.logs to fix issue
 
 Time spent
 
@@ -26,6 +27,7 @@ Time spent
 - 1 hr - Writing ths first pull request #1 to connect backend to frontend, and populate images
 - 1 hr - Replicating starting css grid system
 - 1 hr - css grid
+- 5 hr - converting notes to actual code
 
 Compression methods
 
