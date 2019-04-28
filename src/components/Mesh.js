@@ -49,7 +49,7 @@ export default class Mesh extends Component {
     if (currentID !== largePos) {
       // Hover Left - Scenario 1,2,3,4, X positive
       if (currentID < largePos) {
-        // X = 1, B hovered
+        // X = 1, B hovered left
         if (largePos - currentID == 2) {
           let newImages = this.state.images;
           newImages[largePos].position = "g" + (largePos + 2);
@@ -60,7 +60,7 @@ export default class Mesh extends Component {
             largePos: largePos - 2
           });
         }
-        // X = 1, C hovered
+        // X = 1, C hovered left
         if (largePos - currentID == 1) {
           // Calculate new grid positions
           let newImages = this.state.images;
@@ -80,29 +80,29 @@ export default class Mesh extends Component {
             largePos: largePos - 2
           });
         }
-        // X = 2, D hovered
+        // X = 2, D hovered left
         if (largePos - currentID == 4) {
           console.log("X1D");
         }
-        // X = 2, E hovered
+        // X = 2, E hovered left
         if (largePos - currentID == 3) {
           console.log("X1E");
         }
         // Hover Right - Scenario 1,2,3,4, X negative
       } else if (currentID > largePos) {
-        // X = 1, B hovered
+        // X = 1, B hovered right
         if (currentID - largePos == 4) {
           console.log("X1B");
         }
-        // X = 1, C hovered
+        // X = 1, C hovered right
         if (currentID - largePos == 5) {
           console.log("X1C");
         }
-        // X = 2, D hovered
+        // X = 2, D hovered right
         if (currentID - largePos == 6) {
           console.log("X1D");
         }
-        // X = 2, E hovered
+        // X = 2, E hovered right
         if (currentID - largePos == 7) {
           console.log("X1E");
         }
