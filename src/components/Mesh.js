@@ -101,7 +101,25 @@ export default class Mesh extends Component {
         }
         // X = 2, E hovered left
         if (largePos - currentID == 3) {
-          console.log("X1E");
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 3);
+          newImg[largePos - 2].position = "g" + (largePos + 2);
+          newImg[largePos - 1].position = "g" + (largePos + 1);
+          newImg[largePos - 4].position = "g" + (largePos - 0);
+          newImg[largePos - 3].position = "b" + (largePos - 4);
+
+          // Chop a piece of paper up
+          // Label each transition out, and animate by hand
+          // If the 4th item in array was largePos
+          // The order 0 item swapped with 1st
+          // The order 2nd item swapped with 3rd
+          swap(newImg, largePos - 4, largePos - 3);
+          swap(newImg, largePos - 2, largePos - 1);
+
+          this.setState({
+            images: newImg,
+            largePos: largePos - 4
+          });
         }
         // Hover Right - Scenario 1,2,3,4, X negative
       } else if (currentID > largePos) {
