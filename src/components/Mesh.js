@@ -25,7 +25,14 @@ export default class Mesh extends Component {
       if (currentID < largePos) {
         // X = 1, B hovered
         if (largePos - currentID == 2) {
-          console.log("X1B");
+          let newState = this.state.positions;
+          // 2,0,1
+          newState[largePos] = "g" + (largePos + 2);
+          newState[largePos - 2] = "b" + (largePos - 2);
+          newState[largePos - 1] = "g" + (largePos + 3);
+          this.setState({
+            state: newState
+          });
         }
         // X = 1, C hovered
         if (largePos - currentID == 1) {
@@ -71,8 +78,8 @@ export default class Mesh extends Component {
           return (
             <Picture
               onClick={this.onClick}
-              onHoverIn={this.onHoverIn}
-              onHoverOut={this.onHoverOut}
+              // onHoverIn={this.onHoverIn}
+              // onHoverOut={this.onHoverOut}
               gridID={gridID}
               gridRow={gridRow}
               gridColumn={gridColumn}
