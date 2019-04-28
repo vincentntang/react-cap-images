@@ -35,15 +35,11 @@ class App extends Component {
     const bottomImages = this.state.images.slice(9, 18);
     return (
       <div className="App">
-        <Mesh
-          images={topImages}
-          startPositions={topGridStart}
-          largeImagePosition={2}
-        />
+        <Mesh images={topImages} startPositions={topGridStart} largePos={2} />
         <Mesh
           images={bottomImages}
           startPositions={bottomGridStart}
-          largeImagePosition={6}
+          largePos={6}
         />
       </div>
     );

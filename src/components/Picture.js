@@ -1,7 +1,6 @@
 import React from "react";
 
 const Picture = props => {
-  console.log(props.index);
   return (
     <div
       data-location={props.gridID}
