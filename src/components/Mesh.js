@@ -7,23 +7,17 @@ export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
     // positions: this.props.startPositions,
-    images2:[],
+    images2: [],
     largePos: this.props.largePos
   };
-  componentDidMount(){
-    setTimeout(()=>{
-      this.setState({
-        images2: this.props.meshImages
-      })
-    },500)
-  }
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.images2 !== nextProps.meshImages) {
       return {
         images2: nextProps.meshImages
       };
     }
-  };
+  }
   // onHoverIn = e => {};
   // onHoverOut = e => {};
   onClick = e => {
@@ -121,13 +115,8 @@ export default class Mesh extends Component {
         </>
       );
     } else {
-      pictureItems =<div>Loading ...</div>;
+      pictureItems = <div>Loading ...</div>;
     }
-    return (
-      <div className="Mesh">
-        {pictureItems}
-  
-      </div>
-    );
+    return <div className="Mesh">{pictureItems}</div>;
   }
 }
