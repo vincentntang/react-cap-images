@@ -6,7 +6,7 @@ import _ from "lodash";
 export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
-    positions: this.props.startPositions,
+    // positions: this.props.startPositions,
     largePos: this.props.largePos
   };
 
@@ -94,7 +94,7 @@ export default class Mesh extends Component {
               onClick={this.onClick}
               // onHoverIn={this.onHoverIn}
               // onHoverOut={this.onHoverOut}
-              gridID={gridID}
+              gridID={picture.position}
               gridRow={gridRow}
               gridColumn={gridColumn}
               url={picture.url}
