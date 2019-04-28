@@ -31,7 +31,8 @@ export default class Mesh extends Component {
           newState[largePos - 2] = "b" + (largePos - 2);
           newState[largePos - 1] = "g" + (largePos + 3);
           this.setState({
-            state: newState
+            state: newState,
+            largePos: largePos - 2
           });
         }
         // X = 1, C hovered
