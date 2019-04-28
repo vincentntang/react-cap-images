@@ -143,6 +143,19 @@ export default class Mesh extends Component {
         }
         // X = 1, C hovered right
         if (currentID - largePos == 5) {
+          let newImg = this.state.images;
+          newImg[largePos].position = "g" + (largePos + 1);
+          newImg[largePos + 1].position = "g" + (largePos + 0);
+          newImg[largePos + 2].position = "b" + (largePos + 2);
+
+          // If 4th item, largePos = 2
+          // swap 2nd and 3rd item
+          // or   +0   and +1 from largePos
+          swap(newImg, largePos + 0, largePos + 1);
+          this.setState({
+            images: newImg,
+            largePos: largePos + 2
+          });
         }
         // X = 2, D hovered right
         if (currentID - largePos == 6) {
