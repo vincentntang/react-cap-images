@@ -45,11 +45,6 @@ export default class Mesh extends Component {
           newImages[largePos].position = "g" + (largePos + 2);
           newImages[largePos - 2].position = "b" + (largePos - 2);
           newImages[largePos - 1].position = "g" + (largePos + 3);
-          // let newPositions = this.state.positions;
-          // // 2,0,1
-          // newPositions[largePos] = "g" + (largePos + 2);
-          // newPositions[largePos - 2] = "b" + (largePos - 2);
-          // newPositions[largePos - 1] = "g" + (largePos + 3);
           this.setState({
             images: newImages,
             largePos: largePos - 2
@@ -116,8 +111,6 @@ export default class Mesh extends Component {
             return (
               <Picture
                 onClick={this.onClick}
-                // onHoverIn={this.onHoverIn}
-                // onHoverOut={this.onHoverOut}
                 gridID={picture.position}
                 gridRow={gridRow}
                 gridColumn={gridColumn}

@@ -37,20 +37,6 @@ class App extends Component {
       });
   }
 
-  // swapImageOrder = (a, b) => {
-  //   console.log(a, "a");
-  //   console.log(b, "b");
-  //   let indexImageA = parseInt(a) - 9;
-  //   let indexImageB = parseInt(b) - 9;
-  //   let newImages = this.state.images;
-  //   let temp = newImages[indexImageA];
-  //   newImages[indexImageA] = newImages[indexImageB];
-  //   newImages[indexImageB] = newImages[indexImageA];
-  //   this.setState({
-  //     images: newImages
-  //   });
-  // };
-
   render() {
     console.log(this.state.images);
     const topImages = this.state.images.slice(0, 9);
