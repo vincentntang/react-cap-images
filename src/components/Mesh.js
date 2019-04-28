@@ -6,15 +6,22 @@ import _ from "lodash";
 export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
   state = {
-    // positions: this.props.startPositions,
-    images2: [],
+    images: [],
     largePos: this.props.largePos
   };
 
+  /**
+   * This waits for parent App component to resolve Axios API call to image store
+   * So it can pass the full props data
+   * to this component
+   * which can then seed this component's local state
+   * Why this is necessary is because `Mesh` handles the core logic of the app
+   * `App` only handles seeding of data
+   */
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (prevState.images2 !== nextProps.meshImages) {
+    if (prevState.images !== nextProps.meshImages) {
       return {
-        images2: nextProps.meshImages
+        images: nextProps.meshImages
       };
     }
   }
@@ -34,13 +41,17 @@ export default class Mesh extends Component {
       if (currentID < largePos) {
         // X = 1, B hovered
         if (largePos - currentID == 2) {
-          let newPositions = this.state.positions;
-          // 2,0,1
-          newPositions[largePos] = "g" + (largePos + 2);
-          newPositions[largePos - 2] = "b" + (largePos - 2);
-          newPositions[largePos - 1] = "g" + (largePos + 3);
+          let newImages = this.state.images;
+          newImages[largePos].position = "g" + (largePos + 2);
+          newImages[largePos - 2].position = "b" + (largePos - 2);
+          newImages[largePos - 1].position = "g" + (largePos + 3);
+          // let newPositions = this.state.positions;
+          // // 2,0,1
+          // newPositions[largePos] = "g" + (largePos + 2);
+          // newPositions[largePos - 2] = "b" + (largePos - 2);
+          // newPositions[largePos - 1] = "g" + (largePos + 3);
           this.setState({
-            positions: newPositions,
+            images: newImages,
             largePos: largePos - 2
           });
         }
@@ -90,10 +101,10 @@ export default class Mesh extends Component {
   };
   render() {
     let pictureItems = "";
-    if (this.state.images2.length > 0) {
+    if (this.state.images.length > 0) {
       pictureItems = (
         <>
-          {this.state.images2.map(picture => {
+          {this.state.images.map(picture => {
             let gridID = picture.position;
             console.log(gridID, "gridID");
             let gridRow = gridPositions[gridID][0];
