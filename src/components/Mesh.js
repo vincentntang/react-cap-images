@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Picture from "./Picture";
 import { gridPositions } from "../constants/gridPositions";
-import _ from "lodash";
+// import _ from "lodash";
+import swap from "../util/swap";
 
 export default class Mesh extends Component {
   // TODO - modify largeImagePosition, redundant state of truth
@@ -28,7 +29,6 @@ export default class Mesh extends Component {
   // onHoverIn = e => {};
   // onHoverOut = e => {};
   onClick = e => {
-    // Click the class, grab it's current position
     e.persist();
     const currentID = e.target.dataset.location.substring(1);
     let { largePos } = this.state;
@@ -70,10 +70,7 @@ export default class Mesh extends Component {
           // Because B moves from left to right of A
           // Swap index positions of new B and new A,
           // [arr[0], arr[1]] = [arr[1], arr[0]];
-          [newImg[largePos - 2], newImg[largePos - 1]] = [
-            newImg[largePos - 1],
-            newImg[largePos - 2]
-          ];
+          swap(newImg, largePos - 2, largePos - 1);
           // Push changes
           this.setState({
             images: newImg,
@@ -94,14 +91,8 @@ export default class Mesh extends Component {
           // If the 4th item in array was largePos
           // The order 1st item swapped with 2nd
           // The order 3rd item swapped with 4th
-          [newImg[largePos - 2], newImg[largePos - 3]] = [
-            newImg[largePos - 3],
-            newImg[largePos - 2]
-          ];
-          [newImg[largePos - 0], newImg[largePos - 1]] = [
-            newImg[largePos - 1],
-            newImg[largePos - 0]
-          ];
+          swap(newImg, largePos - 2, largePos - 3);
+          swap(newImg, largePos - 0, largePos - 1);
 
           this.setState({
             images: newImg,
