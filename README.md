@@ -127,7 +127,7 @@ How it looks like, is basically me playing with pieces of paper to figure out ho
 
 You'll need an image server. Feel free to copy my Airtable base at the topright. It's just 2 columns, a primaryKey and an image store in S3. You'll need to then generate an API key to use for that base,
 
-airtable.com/shrjpYuKHeaIHwkwM
+[airtable.com/shrjpYuKHeaIHwkwM](airtable.com/shrjpYuKHeaIHwkwM)
 
 ![](https://i.imgur.com/EVodo1l.png)
 
