@@ -38,7 +38,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.images);
     const topImages = this.state.images.slice(0, 9);
     const bottomImages = this.state.images.slice(9, 18);
     return (

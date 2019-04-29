@@ -227,7 +227,6 @@ export default class Mesh extends Component {
                 url={picture.url}
                 key={picture.id}
                 order={picture.order}
-                // index={index}
               />
             );
           })}
