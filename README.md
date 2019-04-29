@@ -127,4 +127,4 @@ How it looks like, is basically me playing with pieces of paper to figure out ho
 
 * [TEST.md](/TEST.md) - all 8 state changes documented and unit-tests
 * [API.md](/API.md) - these are the API calls I made to Airtable for the image server, as well as the response samples.
-* [My 16 pages of unformatted google doc notes](https://docs.google.com/document/d/1YZM7arTxHLjlbvBXDyKGIpE4vZ2kbHU542E48O4qdec/edit) - There's dozens of images on how I solved everything
+* [My 16 pages of unformatted google doc notes](https://docs.google.com/document/d/1YZM7arTxHLjlbvBXDyKGIpE4vZ2kbHU542E48O4qdec/edit) - My unformatted notes on how I went about solving everything
