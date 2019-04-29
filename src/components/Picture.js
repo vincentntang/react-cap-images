@@ -5,13 +5,17 @@ const Picture = props => {
     <div
       data-location={props.gridID}
       data-id={props.index}
-      data-order={props.order}
+      // data-order={props.order}
       onClick={props.onClick}
       style={{ padding: "10%" }}
       style={{ gridRow: props.gridRow, gridColumn: props.gridColumn }}
       className="Picture"
     >
-      <img src={props.url} />
+      <img
+        src={props.url}
+        onClick={props.onClick}
+        data-location={props.gridID}
+      />
     </div>
   );
 };
