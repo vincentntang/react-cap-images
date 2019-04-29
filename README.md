@@ -123,6 +123,20 @@ How it looks like, is basically me playing with pieces of paper to figure out ho
 * Full unit test coverage
 * onMouseEnter & onMouseLeave events instead of onClick
 
+## Install
+
+Run
+
+```
+npm install
+```
+
+And add your Airtable API Key under `.env`,
+
+You can fork over my Airtable database as an example, and grab an API-key to use on it
+
+airtable.com/shrjpYuKHeaIHwkwM
+
 ## Additional Notes
 
 * [TEST.md](/TEST.md) - all 8 state changes documented and unit-tests
