@@ -26,6 +26,7 @@
   padding: 10%;
   background: radial-gradient(circle ,white, silver);
   background-repeat: no-repeat;
+  transition: grid-row .5s ease-out;
 }
 img {
   width: 100%;
