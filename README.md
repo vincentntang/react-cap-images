@@ -98,7 +98,7 @@ Scenario 2, X=-1, C gets hovered on right\
     +2, convert B
 ```
 
-See [TEST.md](/test.md) for all other scenarios
+See [TEST.md](/TEST.md) for all other scenarios
 
 This describes, what an element is hovered, exactly what grid space positions change.
 
