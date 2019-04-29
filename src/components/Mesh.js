@@ -26,8 +26,6 @@ export default class Mesh extends Component {
       };
     }
   }
-  // onHoverIn = e => {};
-  // onHoverOut = e => {};
   onClick = e => {
     e.persist();
     const currentID = e.target.dataset.location.substring(1);
@@ -44,6 +42,9 @@ export default class Mesh extends Component {
      *
      * There are 8 unique state transitions, each commented out
      * Please see the README doc for more information on how it works
+     *
+     * Chop a piece of paper up
+     * Label each transition out, and animate by hand
      */
     // Only do things if not large image clicked
     if (currentID !== largePos) {
@@ -86,8 +87,6 @@ export default class Mesh extends Component {
           newImg[largePos - 4].position = "b" + (largePos - 4);
           newImg[largePos - 3].position = "g" + (largePos + 1);
 
-          // Chop a piece of paper up
-          // Label each transition out, and animate by hand
           // If the 4th item in array was largePos
           // The order 1st item swapped with 2nd
           // The order 3rd item swapped with 4th
