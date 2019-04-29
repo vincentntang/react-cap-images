@@ -82,7 +82,7 @@ By doing thusly, there's 4 potential state changes each, equalling to 8.
 
 We label these transitions by "A","B","C","D", where each respective letter refers to the nearest top adjacent grid-item. We label these letters going downward, in a zigzag pattern.
 
-Each transition has a set of rules associated with it. Here is an example from my notes
+Each transition has a set of rules associated with it. 
 
 ```
 Scenario 2, X=-1, C gets hovered on right\
@@ -97,6 +97,8 @@ Scenario 2, X=-1, C gets hovered on right\
     +0
     +2, convert B
 ```
+
+See [TEST.md](/test.md) for all other scenarios
 
 This describes, what an element is hovered, exactly what grid space positions change.
 
@@ -123,5 +125,6 @@ How it looks like, is basically me playing with pieces of paper to figure out ho
 
 ## Additional Notes
 
+* [TEST.md](/test.md) - all 8 state changes documented and unit-tests
 * [API.md](/API.md) - these are the API calls I made to Airtable for the image server, as well as the response samples.
 * [My 16 pages of unformatted google doc notes](https://docs.google.com/document/d/1YZM7arTxHLjlbvBXDyKGIpE4vZ2kbHU542E48O4qdec/edit) - There's dozens of images on how I solved everything
