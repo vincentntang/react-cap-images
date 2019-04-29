@@ -1,5 +1,16 @@
 Rewrite Version
-## All Grid Space Changes. Position changes for A,B,C,D,E original to new (we’re assuming hover transitions left)
+## All Grid Space Changes. 
+
+![](https://i.imgur.com/Cvj7tMb.png)
+
+There's 4 scenarios each for an item being hovered left or right of an item, for a grand total of 8 test cases
+
+* LargePos refers to the current topleft coordinate space occupied of the largeImage
+* G0,G1,G2,G3...G11  and B0....B8 are coordinate grid spaces defined on README.md
+* "Test Case 1" describes the tests used to determine the "Rules" for transitioning each state
+* I wrote this document before writing code, (e.g. wrote tests beforehand)
+
+-------
 
 * Scenario 1, X=1, B gets hovered on left
   * Test Case 1
